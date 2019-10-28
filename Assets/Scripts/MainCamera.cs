@@ -16,11 +16,11 @@ public class MainCamera : MonoBehaviour {
     [Tooltip("Maximum relative offset to the target GameObject.")]
     public Vector3 maxOffset;
 
-    [Tooltip("Rotation limits for the X-axis in degrees. X represents the lowest and Y the highest value.")]
-    public Vector2 rotationLimitsX;
+    [Tooltip("Rotation limits for the X-axis in degrees. X represents the lowest and Y the highest value.")][MinMaxRange(-90, 90)]
+    public MinMaxRange rotationLimitsX;
 
-    [Tooltip("Rotation limits for the Y-axis in degrees. X represents the lowest and Y the highest value.")]
-    public Vector2 rotationLimitsY;
+    [Tooltip("Rotation limits for the Y-axis in degrees. X represents the lowest and Y the highest value.")][MinMaxRange(-90, 90)]
+    public MinMaxRange rotationLimitsY;
 
     [Tooltip("Whether the rotation on the X-axis should be limited.")]
     public bool limitXRotation = false;
@@ -38,6 +38,9 @@ public class MainCamera : MonoBehaviour {
         }
 
         cameraTransform = transform;
+        if (target != null) {
+            //TODO 根据target的位置和设置的参数调整camera的位置和角度
+        }
     }
 
     // LateUpdate is called every frame, if the Behaviour is enabled
@@ -47,11 +50,11 @@ public class MainCamera : MonoBehaviour {
             cameraRotation.y -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
             
             if (limitXRotation) {
-                cameraRotation.x = Mathf.Clamp(cameraRotation.x, rotationLimitsX.x, rotationLimitsX.y);
+                cameraRotation.x = Mathf.Clamp(cameraRotation.x, rotationLimitsX.start, rotationLimitsX.end);
             }
 
             if (limitYRotation) {
-                cameraRotation.y = Mathf.Clamp(cameraRotation.y, rotationLimitsY.x, rotationLimitsY.y);
+                cameraRotation.y = Mathf.Clamp(cameraRotation.y, rotationLimitsY.start, rotationLimitsY.end);
             }
         }
 
@@ -64,6 +67,4 @@ public class MainCamera : MonoBehaviour {
         cameraTransform.rotation = rotation;
         cameraTransform.position = position;
     }
-    
-    
 }
