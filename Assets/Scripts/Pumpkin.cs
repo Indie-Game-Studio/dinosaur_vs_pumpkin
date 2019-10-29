@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Pumpkin : MonoBehaviour {
     public float speed = 9;
 
