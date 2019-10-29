@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 enum DinosaurState {
     Normal,
@@ -12,6 +8,7 @@ enum DinosaurState {
     Scared,
 }
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Dinosaur : MonoBehaviour {
 
     public float normalDuration = 10;
@@ -25,9 +22,15 @@ public class Dinosaur : MonoBehaviour {
     private float _elapsed = 0;
 
     private DinosaurState _state = 0;
+
+    private NavMeshAgent _agent;
+    
     // Start is called before the first frame update
     void Start() {
         _state = DinosaurState.Normal;
+
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.stoppingDistance = 5;
 
         var pumpkin = GameObject.FindObjectOfType<Pumpkin>();
         if (pumpkin != null)
@@ -51,11 +54,16 @@ public class Dinosaur : MonoBehaviour {
         }
 
         if (_state == DinosaurState.Normal && target != null) {
+            _agent.isStopped = false;
+            _agent.destination = target.position;
 //            var targetPosition = target.position;
 //            var targetRotation = Quaternion.LookRotation(targetPosition - transform.position, Vector3.up);
 //            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
-            transform.LookAt(target, Vector3.up); 
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+//            transform.LookAt(target, Vector3.up); 
+//            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        } else {
+            _agent.isStopped = true;
         }
     }
 
