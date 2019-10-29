@@ -30,15 +30,14 @@ public class Dinosaur : MonoBehaviour {
         _state = DinosaurState.Normal;
 
         _agent = GetComponent<NavMeshAgent>();
-        _agent.stoppingDistance = 5;
 
-        var pumpkin = GameObject.FindObjectOfType<Pumpkin>();
+        var pumpkin = FindObjectOfType<Pumpkin>();
         if (pumpkin != null)
             target = pumpkin.transform;
     }
 
     // Update is called once per frame
-    void Update() {
+    void LateUpdate() {
         if (_state != DinosaurState.Idle) {
             _elapsed += Time.deltaTime;
 
@@ -54,7 +53,6 @@ public class Dinosaur : MonoBehaviour {
         }
 
         if (_state == DinosaurState.Normal && target != null) {
-            _agent.isStopped = false;
             _agent.destination = target.position;
 //            var targetPosition = target.position;
 //            var targetRotation = Quaternion.LookRotation(targetPosition - transform.position, Vector3.up);
@@ -62,13 +60,12 @@ public class Dinosaur : MonoBehaviour {
 
 //            transform.LookAt(target, Vector3.up); 
 //            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        } else {
-            _agent.isStopped = true;
-        }
+        } 
     }
 
     void changeToState(DinosaurState st) {
         _state = st;
         _elapsed = 0;
+        _agent.isStopped = (st == DinosaurState.Normal);
     }
 }
