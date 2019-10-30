@@ -70,4 +70,20 @@ public class Dinosaur : MonoBehaviour {
         _agent.isStopped = (st == DinosaurState.Normal);
         Debug.LogFormat("state changed to {0}", st);
     }
+    
+    void OnDrawGizmos() {
+        var path = GetComponent<NavMeshAgent>().path;
+        if (path == null)
+            return;
+        // color depends on status
+        Color c = Color.white;
+        switch (path.status) {
+            case NavMeshPathStatus.PathComplete: c = Color.white; break;
+            case NavMeshPathStatus.PathInvalid: c = Color.red; break;
+            case NavMeshPathStatus.PathPartial: c = Color.black; break;
+        }
+        // draw the path
+        for (int i = 1; i < path.corners.Length; ++i)
+            Debug.DrawLine(path.corners[i-1], path.corners[i], c);
+    }
 }
