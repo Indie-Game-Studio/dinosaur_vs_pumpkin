@@ -53,6 +53,7 @@ public class Dinosaur : MonoBehaviour {
         }
 
         if (_state == DinosaurState.Normal && target != null) {
+            _agent.isStopped = false;
             _agent.destination = target.position;
 //            var targetPosition = target.position;
 //            var targetRotation = Quaternion.LookRotation(targetPosition - transform.position, Vector3.up);
@@ -67,5 +68,6 @@ public class Dinosaur : MonoBehaviour {
         _state = st;
         _elapsed = 0;
         _agent.isStopped = (st == DinosaurState.Normal);
+        Debug.LogFormat("state changed to {0}", st);
     }
 }

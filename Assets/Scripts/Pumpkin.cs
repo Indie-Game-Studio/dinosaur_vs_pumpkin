@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -26,7 +27,13 @@ public class Pumpkin : MonoBehaviour {
         } else if (Input.GetKey(KeyCode.RightArrow)) {
             transform.Rotate (Vector3.up * rotateSpeed * Time.deltaTime);
         }
-        
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+    }
+
+    public void ReceiveCandy(Candy candy) {
+        Debug.LogFormat("Received candy: {0}", candy.color);
     }
 }
