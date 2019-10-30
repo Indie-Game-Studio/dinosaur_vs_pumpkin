@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
-    Transform m_target;
-
     public float smoothSpeed = 10f;
     public Vector3 offset;
 
-    // Start is called before the first frame update
+    Transform m_target;
+
     public void SetTarget(Transform target)
     {
         m_target = target;
