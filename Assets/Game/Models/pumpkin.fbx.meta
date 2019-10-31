@@ -2,13 +2,11 @@ fileFormatVersion: 2
 guid: 0beac5a685156446b8ba9ac29d451d5d
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Halloween_Pumpkin_Material
-    second: {fileID: 2100000, guid: 7614f5d992918443eaa9307182aaa9e1, type: 2}
+      74: 1310769345302405993
+    second: Halloween_Pumpkin|action_run
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,7 +90,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
