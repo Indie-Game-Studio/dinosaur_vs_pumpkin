@@ -9,7 +9,7 @@ public class Stage : MonoBehaviour
     public GameObject dinosaurPre;
     public CameraFollower cameraFollower;
 
-
+    Scene m_scene;
     GameObject m_pumpkin;
     GameObject m_dinosaur;
 
@@ -19,14 +19,36 @@ public class Stage : MonoBehaviour
     }
 
     void LoadLevel(string name) {
+        if (m_pumpkin != null) {
+            Destroy(m_pumpkin);
+        }
+        if (m_dinosaur != null)
+        {
+            Destroy(m_dinosaur);
+        }
+        if (m_scene.IsValid())
+        {
+            SceneManager.UnloadSceneAsync(m_scene);
+        }
+
         LoadSceneParameters args = new LoadSceneParameters() {
             loadSceneMode = LoadSceneMode.Additive
         };
-        Scene scene = SceneManager.LoadScene(name, args);
+        m_scene = SceneManager.LoadScene(name, args);
 
-        m_pumpkin = Instantiate(pumpkinPre);
-        m_dinosaur = Instantiate(dinosaurPre);
+        m_pumpkin = CreateObject(pumpkinPre);
+        m_dinosaur = CreateObject(dinosaurPre);
+        cameraFollower.SetTarget(m_pumpkin);
+    }
 
-        cameraFollower.SetTarget(m_pumpkin.transform);
+    GameObject CreateObject(GameObject prefab) {
+        var obj = Instantiate(prefab);
+
+        Vector3 pos = new Vector3();
+        pos.x = Random.Range(-20 * 5, 20 * 5);
+        pos.z = Random.Range(-20 * 5, 20 * 5);
+
+        obj.transform.position = pos;
+        return obj;
     }
 }

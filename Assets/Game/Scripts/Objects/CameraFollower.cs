@@ -9,13 +9,13 @@ public class CameraFollower : MonoBehaviour
 
     Transform m_target;
 
-    public void SetTarget(Transform target)
+    public void SetTarget(GameObject target)
     {
-        m_target = target;
+        m_target = target.transform;
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         var destPosition = m_target.position + offset;
         var smoothedPosition = Vector3.Lerp(transform.position, destPosition, smoothSpeed * Time.deltaTime);
