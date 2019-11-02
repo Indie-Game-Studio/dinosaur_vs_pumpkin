@@ -9,9 +9,9 @@ public class CameraFollower : MonoBehaviour
 
     Transform m_target;
 
-    public void SetTarget(GameObject target)
+    public void SetTarget(Transform target)
     {
-        m_target = target.transform;
+        m_target = target;
     }
 
     // Update is called once per frame

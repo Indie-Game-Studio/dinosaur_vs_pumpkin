@@ -38,15 +38,16 @@ public class Stage : MonoBehaviour
 
         m_pumpkin = CreateObject(pumpkinPre);
         m_dinosaur = CreateObject(dinosaurPre);
-        cameraFollower.SetTarget(m_pumpkin);
+        cameraFollower.SetTarget(m_pumpkin.transform);
+        m_dinosaur.GetComponent<Dinosaur>().SetTarget(m_pumpkin.transform);
     }
 
     GameObject CreateObject(GameObject prefab) {
         var obj = Instantiate(prefab);
 
         Vector3 pos = new Vector3();
-        pos.x = Random.Range(-20 * 5, 20 * 5);
-        pos.z = Random.Range(-20 * 5, 20 * 5);
+        pos.x = Random.Range(-20 * 5f, 20 * 5f);
+        pos.z = Random.Range(-20 * 5f, 20 * 5f);
 
         obj.transform.position = pos;
         return obj;

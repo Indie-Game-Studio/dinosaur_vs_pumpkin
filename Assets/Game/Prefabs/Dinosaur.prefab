@@ -378,8 +378,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1605475691867585024}
   - component: {fileID: 8704833982763505530}
+  - component: {fileID: 8857572375277280516}
+  - component: {fileID: 5783821471593463994}
   m_Layer: 0
-  m_Name: dinosaur
+  m_Name: Dinosaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,7 +413,7 @@ Animator:
   m_GameObject: {fileID: 2313885362769643539}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 32e1ebd4103b5b24a9b569b964a20a6d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a3e490bbcdbac640bce5028f4bee552, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -420,6 +422,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &8857572375277280516
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313885362769643539}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5783821471593463994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313885362769643539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9944cf50fe6c6b4493b5dbb75702ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2651623448133430753
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5155495551026956408}
   - component: {fileID: 3058634817437507648}
+  - component: {fileID: 3686125762313384739}
   m_Layer: 0
   m_Name: Dinosaur
   m_TagString: Untagged
@@ -852,6 +889,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00061645824, y: -0.00057809986, z: 0.0026101433}
     m_Extent: {x: 0.009125072, y: 0.026246289, z: 0.014907207}
   m_DirtyAABB: 0
+--- !u!64 &3686125762313384739
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896860130530492026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -9123749991102495029, guid: 32e1ebd4103b5b24a9b569b964a20a6d, type: 3}
 --- !u!1 &4293723604393827883
 GameObject:
   m_ObjectHideFlags: 0

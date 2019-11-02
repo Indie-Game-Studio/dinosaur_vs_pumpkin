@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1936035692803383526}
   - component: {fileID: -8958376518031000952}
   m_Layer: 0
-  m_Name: pumpkin
+  m_Name: Pumpkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5103668018839184072}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b7d1229a4ae9ce345949a508975b4bd3, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 0beac5a685156446b8ba9ac29d451d5d, type: 3}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -104,11 +104,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5103668018839184087}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0beac5a685156446b8ba9ac29d451d5d,
-        type: 3}
-      propertyPath: m_Name
-      value: pumpkin
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0beac5a685156446b8ba9ac29d451d5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -173,6 +168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 100.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0beac5a685156446b8ba9ac29d451d5d,
+        type: 3}
+      propertyPath: m_Name
+      value: pumpkin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0beac5a685156446b8ba9ac29d451d5d, type: 3}
