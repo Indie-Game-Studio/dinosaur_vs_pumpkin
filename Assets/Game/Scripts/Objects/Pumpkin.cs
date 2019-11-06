@@ -25,7 +25,7 @@ public class Pumpkin : MonoBehaviour
         {
             Moving(h, v);
             Rotating(h, v);
-            float moveSpeed = Mathf.Abs(h * h + v * v);
+            float moveSpeed = h * h + v * v;
             m_animator.SetFloat("moveSpeed", moveSpeed);
         }
         else {

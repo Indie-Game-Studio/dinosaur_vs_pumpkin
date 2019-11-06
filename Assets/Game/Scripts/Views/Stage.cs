@@ -12,7 +12,6 @@ public class Stage : MonoBehaviour
     Scene m_scene;
     GameObject m_pumpkin;
     GameObject m_dinosaur;
-
     void Start()
     {
         LoadLevel("Level0");
