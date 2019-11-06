@@ -41,7 +41,6 @@ public class Pumpkin : MonoBehaviour
         m_rigid.MoveRotation(newRotation);
     }
     void Moving(float horizontal, float vertical) {
-
         Vector3 deltaPos = new Vector3(horizontal, 0f, vertical);
         Vector3 newPosition = m_rigid.position + deltaPos * moveSpeed * Time.deltaTime;
         m_rigid.MovePosition(newPosition);
