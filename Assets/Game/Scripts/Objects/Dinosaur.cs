@@ -2,25 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using MonsterLove.StateMachine;
+
+public enum States
+{
+    Idle,
+    Run,
+    Attack
+}
 
 public class Dinosaur : MonoBehaviour
 {
     public float attackRange = 3.5f;
 
-
     Transform m_target;
     Animator m_animator;
     NavMeshAgent m_agent;
-    bool isAttacking = false;
+    StateMachine<States> m_fsm;
 
     void Awake()
     {
         m_animator = GetComponent<Animator>();
         m_agent = GetComponent<NavMeshAgent>();
+        m_fsm = StateMachine<States>.Initialize(this, States.Idle);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetTarget(Transform target)
+    {
+        m_target = target;
+    }
+
+    void Idle_Update()
+    {
+        if (m_target && m_agent.isOnNavMesh)
+        {
+            m_agent.isStopped = true;
+            m_animator.SetFloat("moveSpeed", 0);
+            float dis = Vector3.Distance(m_target.position, transform.position);
+            if (dis >= attackRange)
+            {
+                m_fsm.ChangeState(States.Run);
+            }
+            else
+            {
+                m_fsm.ChangeState(States.Attack);
+            }
+        }
+    }
+
+    void Run_Update()
     {
         if (m_target && m_agent.isOnNavMesh)
         {
@@ -33,32 +63,26 @@ public class Dinosaur : MonoBehaviour
             }
             else
             {
-                m_agent.isStopped = true;
-                m_animator.SetFloat("moveSpeed", 0);
-
-                if (!isAttacking) {
-                    Attack();
-                }
+                m_fsm.ChangeState(States.Attack);
             }
         }
     }
 
-    public void SetTarget(Transform target)
+    IEnumerator Attack_Enter()
     {
-        m_target = target;
-    }
+        //停止寻路
+        m_agent.isStopped = true;
 
-    void Attack() {
-        isAttacking = true;
+        //朝向目标
         transform.LookAt(m_target);
-        m_animator.SetBool("attack", true);
-        StartCoroutine("AttackLater");
-    }
 
-    IEnumerator AttackLater() {
+        //攻击动画
+        m_animator.SetBool("attack", true);
         yield return new WaitForSeconds(1.24f);
         m_animator.SetBool("attack", false);
         yield return new WaitForSeconds(1f);
-        isAttacking = false;
+
+        //回到Idle
+        m_fsm.ChangeState(States.Idle);
     }
 }
