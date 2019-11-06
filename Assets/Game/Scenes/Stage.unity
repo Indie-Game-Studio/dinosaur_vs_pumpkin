@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pumpkinPre: {fileID: 5181137135105200194, guid: 94ca30f58827e614cb3fead8f48675ee,
     type: 3}
-  dinosaurPre: {fileID: 2313885362769643539, guid: bde1bae381946494d808d8ebe90e5fa1,
+  dinosaurPre: {fileID: 7960953360644321146, guid: bde1bae381946494d808d8ebe90e5fa1,
     type: 3}
   cameraFollower: {fileID: 534669906}
 --- !u!1 &742290164
