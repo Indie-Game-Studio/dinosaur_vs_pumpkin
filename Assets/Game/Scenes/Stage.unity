@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 10
-  offset: {x: 0, y: 15, z: -10}
+  offset: {x: 0, y: 8, z: -10}
 --- !u!1 &546000060
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a09b504d1e6bd941bb8baec21dba2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pumpkinPre: {fileID: 71622269795102349, guid: 94ca30f58827e614cb3fead8f48675ee,
+  pumpkinPre: {fileID: 5181137135105200194, guid: 94ca30f58827e614cb3fead8f48675ee,
     type: 3}
   dinosaurPre: {fileID: 2313885362769643539, guid: bde1bae381946494d808d8ebe90e5fa1,
     type: 3}
