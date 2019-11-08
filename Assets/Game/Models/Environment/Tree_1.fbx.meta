@@ -1,32 +1,38 @@
 fileFormatVersion: 2
-guid: 8d4d23c5c57c4420cbc8361c485d606d
+guid: c52a1ad28de5ec447a225e11be0fe132
+timeCreated: 1504768178
+licenseType: Store
 ModelImporter:
-  serializedVersion: 26
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      21: 2100000
-    second: Material
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: sugarbomb.158
-  externalObjects: {}
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Leaves
+    100002: Leaves_1
+    100004: Leaves_2
+    100006: Leaves_3
+    100008: //RootNode
+    100010: Tree_1
+    400000: Leaves
+    400002: Leaves_1
+    400004: Leaves_2
+    400006: Leaves_3
+    400008: //RootNode
+    400010: Tree_1
+    2300000: Leaves_1
+    2300002: Leaves_2
+    2300004: Leaves_3
+    2300006: Tree_1
+    3300000: Leaves_1
+    3300002: Leaves_2
+    3300004: Leaves_3
+    3300006: Tree_1
+    4300000: Leaves_1
+    4300002: Leaves_2
+    4300004: Leaves_3
+    4300006: Tree_1
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -39,8 +45,6 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -55,8 +59,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -64,14 +66,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -82,14 +79,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -99,8 +92,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
