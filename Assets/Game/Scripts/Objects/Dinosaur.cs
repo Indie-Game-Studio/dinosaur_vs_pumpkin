@@ -14,8 +14,9 @@ public enum States
 public class Dinosaur : MonoBehaviour
 {
     public float attackRange = 3.5f;
-
+    
     Transform m_target;
+    RectTransform m_arrow;
     Animator m_animator;
     NavMeshAgent m_agent;
     StateMachine<States> m_fsm;
@@ -25,6 +26,50 @@ public class Dinosaur : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_agent = GetComponent<NavMeshAgent>();
         m_fsm = StateMachine<States>.Initialize(this, States.Idle);
+    }
+
+    void Update()
+    {
+        if (m_arrow != null)
+        {
+            Vector3 self = Camera.main.WorldToViewportPoint(transform.position, Camera.MonoOrStereoscopicEye.Mono);
+            Vector3 target = Camera.main.WorldToViewportPoint(m_target.position, Camera.MonoOrStereoscopicEye.Mono);
+
+            bool show = !(self.x >= 0f && self.x <= 1f && self.y >= 0f && self.y <= 1f);
+            if (show)
+            {
+                m_arrow.gameObject.SetActive(true);
+
+                RectTransform camreaRT = m_arrow.root as RectTransform;
+                Vector3 selfScreenPoint = Camera.main.ViewportToScreenPoint(self);
+
+                Debug.Log(selfScreenPoint);
+
+                selfScreenPoint.z = 0;
+                if (selfScreenPoint.x < 0) selfScreenPoint.x = 20f;
+                if (selfScreenPoint.x > Screen.width) selfScreenPoint.x = Screen.width - 20f;
+                if (selfScreenPoint.y < 0) selfScreenPoint.y = 10f;
+                if (selfScreenPoint.y > Screen.height) selfScreenPoint.y = Screen.height - 20f;
+
+                Vector2 selfUIPosition;
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(camreaRT, selfScreenPoint, null, out selfUIPosition))
+                {
+                    m_arrow.anchoredPosition = selfUIPosition;
+                }
+
+                Vector3 dir = target - self;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 180f;
+                m_arrow.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+            else {
+                m_arrow.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void SetArrow(RectTransform arrow)
+    {
+        m_arrow = arrow;
     }
 
     public void SetTarget(Transform target)

@@ -1465,10 +1465,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6350538643349626217}
   - component: {fileID: 3939425910245715987}
-  - component: {fileID: 6946781440703094849}
   - component: {fileID: 7506786399099759763}
+  - component: {fileID: 6946781440703094849}
   m_Layer: 0
-  m_Name: dinosaur
+  m_Name: Dinosaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1509,19 +1509,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6946781440703094849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7960953360644321146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9944cf50fe6c6b4493b5dbb75702ba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 3.5
 --- !u!195 &7506786399099759763
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1544,6 +1531,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6946781440703094849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960953360644321146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9944cf50fe6c6b4493b5dbb75702ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 3.5
 --- !u!1 &8108398367051758047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,6 +1746,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

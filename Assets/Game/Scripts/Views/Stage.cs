@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Stage : MonoBehaviour
 {
+    public GameObject arrowPre;
     public GameObject pumpkinPre;
     public GameObject dinosaurPre;
     public CameraFollower cameraFollower;
@@ -38,7 +39,12 @@ public class Stage : MonoBehaviour
         m_pumpkin = CreateObject(pumpkinPre);
         m_dinosaur = CreateObject(dinosaurPre);
         cameraFollower.SetTarget(m_pumpkin.transform);
+
+        var arrow = Instantiate(arrowPre, arrowPre.transform.parent);
+        arrow.SetActive(true);
+
         m_dinosaur.GetComponent<Dinosaur>().SetTarget(m_pumpkin.transform);
+        m_dinosaur.GetComponent<Dinosaur>().SetArrow(arrow.transform as RectTransform);
     }
 
     GameObject CreateObject(GameObject prefab) {

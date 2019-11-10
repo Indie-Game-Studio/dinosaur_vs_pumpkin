@@ -21,9 +21,10 @@ public class Pumpkin : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+        bool acc = Input.GetKey(KeyCode.LeftShift);
         if (h != 0f || v != 0f)
         {
-            Moving(h, v);
+            Moving(h, v, acc);
             Rotating(h, v);
             float moveSpeed = h * h + v * v;
             m_animator.SetFloat("moveSpeed", moveSpeed);
@@ -40,9 +41,9 @@ public class Pumpkin : MonoBehaviour
         Quaternion newRotation = Quaternion.Lerp(m_rigid.rotation, targetRotation, turnSmoothing * Time.deltaTime);
         m_rigid.MoveRotation(newRotation);
     }
-    void Moving(float horizontal, float vertical) {
+    void Moving(float horizontal, float vertical,bool acc) {
         Vector3 deltaPos = new Vector3(horizontal, 0f, vertical);
-        Vector3 newPosition = m_rigid.position + deltaPos * moveSpeed * Time.deltaTime;
+        Vector3 newPosition = m_rigid.position + deltaPos * (acc ? moveSpeed * 5 : moveSpeed) * Time.deltaTime;
         m_rigid.MovePosition(newPosition);
     }
 }
