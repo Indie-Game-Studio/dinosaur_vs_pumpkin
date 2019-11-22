@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(SceneData))]
 public class SceneDataEditor: Editor {
@@ -16,6 +14,9 @@ public class SceneDataEditor: Editor {
     private void OnEnable() {
         sceneData = (SceneData) target;
         propertyPumpkinSpawn = serializedObject.FindProperty(propertyPumpkinSpawnName);
+        
+        if (sceneData.pumpkinSpawnPos == null)
+            sceneData.pumpkinSpawnPos = Vector3.zero;
     }
 
     // GameObject的menu中的priority低于50的item同样会出现在Hierarchy的Context Menu中
@@ -37,24 +38,17 @@ public class SceneDataEditor: Editor {
         showPropertyPumpkinSpawn = EditorGUILayout.Foldout(showPropertyPumpkinSpawn, "南瓜怪出生点");
         if (showPropertyPumpkinSpawn) {
             EditorGUI.indentLevel++;
-            if (sceneData.pumpkinSpawnPos == null) {
-                if (GUILayout.Button("创建 南瓜怪出生点")) {
-                    sceneData.pumpkinSpawnPos = CreatePumpkinSpawn().transform;
-                    Repaint();
-                }
-            } else {
-                EditorGUILayout.PropertyField(propertyPumpkinSpawn);
-            }
+            EditorGUILayout.PropertyField(propertyPumpkinSpawn);
             EditorGUI.indentLevel--;
         }
         EditorGUILayout.Space();
     }
 
-    private GameObject CreatePumpkinSpawn() {
-        GameObject obj = new GameObject("pumpkin spawn");
-        obj.AddComponent<PumpkinSpawnPos>();
-        obj.transform.parent = ((SceneData) target).transform;
-        Undo.RegisterCreatedObjectUndo(obj, "Pumpkin Spawn Object");
-        return obj;
-    }
+//    private GameObject CreatePumpkinSpawn() {
+//        GameObject obj = new GameObject("pumpkin spawn");
+//        obj.AddComponent<CandySpawnPos>();
+//        obj.transform.parent = ((SceneData) target).transform;
+//        Undo.RegisterCreatedObjectUndo(obj, "Pumpkin Spawn Object");
+//        return obj;
+//    }
 }
