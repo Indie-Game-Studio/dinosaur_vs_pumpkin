@@ -252,6 +252,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 678077501}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &191703350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 191703351}
+  - component: {fileID: 191703352}
+  m_Layer: 0
+  m_Name: pumpkin spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &191703351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191703350}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.47, y: 0, z: 6.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1385720944}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &191703352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191703350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0e329fa5094ef2a89f68492ca3bcf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &220986945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4956255927207046, guid: c04be9f92ebf58b46b2204ac3aaa8785,
@@ -1738,6 +1781,7 @@ Transform:
   - {fileID: 2067442497}
   - {fileID: 839396814}
   - {fileID: 150097002}
+  - {fileID: 1480621440}
   - {fileID: 1373419168}
   - {fileID: 846148762}
   - {fileID: 1328073986}
@@ -1751,7 +1795,6 @@ Transform:
   - {fileID: 868206549}
   - {fileID: 1332712387}
   - {fileID: 2012500995}
-  - {fileID: 1480621440}
   - {fileID: 267820487}
   - {fileID: 1064968900}
   - {fileID: 1555660155}
@@ -2373,7 +2416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f54425a544aa43fea530afb2e1edad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pumpkinSpawnPos: {fileID: 1661548197}
+  pumpkinSpawnPos: {fileID: 191703351}
+  candySpawnPosArray: []
 --- !u!4 &1385720944
 Transform:
   m_ObjectHideFlags: 0
@@ -2385,7 +2429,7 @@ Transform:
   m_LocalPosition: {x: -18.26, y: 0, z: -20.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1661548197}
+  - {fileID: 191703351}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2543,7 +2587,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 1070382417}
-  m_RootOrder: 40
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1480973320 stripped
 Transform:
@@ -2689,49 +2733,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 758553443}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1661548196
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1661548197}
-  - component: {fileID: 1661548198}
-  m_Layer: 0
-  m_Name: pumpkin spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1661548197
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661548196}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1385720944}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1661548198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661548196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41b4f0a697dc48acb29dd43e1387f84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1706556936
 PrefabInstance:
   m_ObjectHideFlags: 0

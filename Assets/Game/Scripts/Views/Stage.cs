@@ -52,7 +52,7 @@ public class Stage : MonoBehaviour, ILevelSceneEventHandle {
     }
 
     public void OnLevelSceneLoaded(SceneData scene) {
-        m_pumpkin = CreateObject(pumpkinPre, scene.pumpkinSpawnPos);
+        m_pumpkin = CreateObject(pumpkinPre, scene.pumpkinSpawnPos.position);
         m_dinosaur = CreateObject(dinosaurPre);
         cameraFollower.SetTarget(m_pumpkin.transform);
         
